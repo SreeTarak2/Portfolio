@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Skills & Projects - J.S.T.V. Krishna{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills & Projects</h2>
+        
+        <!-- Technologies Section -->
+        <h3 class="subsection-title animated-item"><i class="fas fa-cogs icon-left"></i>Core Technologies</h3>
+        <div class="tech-grid">
+            <div class="card tech-category-card animated-item">
+                <h4><i class="fas fa-code icon-left"></i>Languages</h4>
+                <div class="skill-tags-container">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">SQL</span>
+                </div>
+            </div>
+            <div class="card tech-category-card animated-item">
+                <h4><i class="fas fa-shield-alt icon-left"></i>Cybersecurity Tools</h4>
+                <div class="skill-tags-container">
+                    <span class="skill-tag">Kali Linux</span>
+                    <span class="skill-tag">Wireshark</span>
+                    <span class="skill-tag">Burp Suite</span>
+                    <span class="skill-tag">Nmap</span>
+                    <span class="skill-tag">Metasploit</span>
+                </div>
+            </div>
+            <div class="card tech-category-card animated-item">
+                <h4><i class="fas fa-desktop icon-left"></i>Web Development</h4>
+                <div class="skill-tags-container">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React.js</span>
+                </div>
+            </div>
+            <div class="card tech-category-card animated-item">
+                <h4><i class="fas fa-tools icon-left"></i>Tools & Skills</h4>
+                <div class="skill-tags-container">
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Problem-Solving</span>
+                    <span class="skill-tag">Team Collaboration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <h3 class="subsection-title animated-item"><i class="fas fa-project-diagram icon-left"></i>Featured Projects</h3>
+        <div class="projects-grid">
+            <!-- NEW PROJECT ADDED HERE -->
+            <div class="card project-card animated-item">
+                <div class="project-card-header">
+                    <i class="fas fa-robot project-icon"></i>
+                    <h4>RagChatbot (Conversational AI)</h4>
+                </div>
+                <p>Built a voice-enabled conversational AI using Retrieval-Augmented Generation (RAG) and ReAct reasoning. Integrated OpenAI Whisper, a vector DB, and MongoDB for session management, all powered by a modular Node.js/Python backend and a dynamic ReactJS frontend.</p>
+                <div class="project-tech-stack">
+                    <strong>Tech Stack:</strong>
+                    <span class="skill-tag tech-stack-tag">ReactJS</span>
+                    <span class="skill-tag tech-stack-tag">Node.js</span>
+                    <span class="skill-tag tech-stack-tag">Python</span>
+                    <span class="skill-tag tech-stack-tag">MongoDB</span>
+                    <span class="skill-tag tech-stack-tag">RAG</span>
+                    <span class="skill-tag tech-stack-tag">OpenAI API</span>
+                    <span class="skill-tag tech-stack-tag">WebSockets</span>
+                </div>
+                <a href="https://github.com/SreeTarak2" class="btn-link" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+
+            <div class="card project-card animated-item">
+                <div class="project-card-header">
+                    <i class="fas fa-image project-icon"></i>
+                    <h4>Image Steganography Tool</h4>
+                </div>
+                <p>Implemented an LSB-based image steganography application to securely embed and extract encrypted text within image pixels, ensuring minimal perceptual distortion and high payload capacity.</p>
+                <div class="project-tech-stack">
+                    <strong>Tech Stack:</strong>
+                    <span class="skill-tag tech-stack-tag">Python</span>
+                    <span class="skill-tag tech-stack-tag">Cryptography</span>
+                </div>
+                <a href="https://github.com/SreeTarak2" class="btn-link" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+            <div class="card project-card animated-item">
+                <div class="project-card-header">
+                    <i class="fas fa-volume-up project-icon"></i>
+                    <h4>Audio Steganography System</h4>
+                </div>
+                <p>Developed an audio steganography system using LSB and phase encoding to embed sensitive data in .WAV files. Achieved imperceptibility and tested robustness against basic signal transformations.</p>
+                <div class="project-tech-stack">
+                    <strong>Tech Stack:</strong>
+                    <span class="skill-tag tech-stack-tag">Python</span>
+                    <span class="skill-tag tech-stack-tag">Signal Processing</span>
+                </div>
+                <a href="https://github.com/SreeTarak2" class="btn-link" target="_blank">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- JavaScript for animations -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const animatedItems = document.querySelectorAll('.animated-item');
+        animatedItems.forEach((item, index) => {
+            // Add a staggered delay
+            item.style.animationDelay = `${index * 100}ms`;
+            observer.observe(item);
+        });
+    });
+</script>
+{% endblock %}

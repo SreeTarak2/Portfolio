@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ================== -->
+<!-- ====== HERO ====== -->
+<!-- ================== -->
+<section id="home" class="section hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title animated-item slide-in-bottom">Jakkani Sree Taraka Vamsi Krishna</h1>
+        <h3 class="hero-subtitle animated-item slide-in-bottom">AI & Machine Learning Student | Cybersecurity Enthusiast</h3>
+        <p class="hero-text animated-item slide-in-bottom">
+            Motivated and detail-oriented undergraduate with a strong foundation in programming and cybersecurity. Passionate about solving real-world problems using innovative technologies.
+        </p>
+        <div class="hero-buttons animated-item slide-in-bottom">
+            <a href="{{ url_for('skills') }}" class="btn btn-primary">View My Work</a>
+            <a href="{{ url_for('resume') }}" class="btn btn-secondary">See My Resume</a>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= -->
+<!-- ====== ABOUT ME ======= -->
+<!-- ======================= -->
+<section id="about" class="section about-section">
+    <div class="container">
+        <div class="about-grid">
+            <!-- Image Column -->
+            <div class="about-image-container animated-item slide-in-left">
+                <div class="image-wrapper">
+                    <!-- 
+                        IMPORTANT: Create an 'img' folder inside 'static' and put your photo there.
+                        Then, change the src to: src="{{ url_for('static', filename='img/your-photo.jpg') }}"
+                    -->
+                    <img src="https://placehold.co/400x400/161b22/f0f6fc?text=Your\nPhoto" alt="A profile picture of Jakkani Sree Taraka Vamsi Krishna" class="profile-pic">
+                </div>
+            </div>
+            <!-- Text Column -->
+            <div class="about-text-container animated-item slide-in-right">
+                <h2 class="about-title">About Me</h2>
+                <p>
+                    I am an undergraduate student at Sri Vasavi Engineering College, pursuing a degree in Artificial Intelligence and Machine Learning. My passion lies at the intersection of AI, software development, and cybersecurity, where I enjoy building solutions that are not only functional but also secure and intelligent.
+                </p>
+                <p>
+                    From developing conversational AI like the RagChatbot to exploring the intricacies of steganography, I am driven by a curiosity to understand how complex systems work. I am eager to apply my analytical skills and technical knowledge to solve challenging problems in dynamic research and industry settings.
+                </p>
+                <p>
+                    Outside of academics, I am always experimenting with new technologies and collaborating on projects that push the boundaries of what's possible.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =============================================================== -->
+<!-- ====== NEW: JAVASCRIPT FOR ANIMATIONS (The Missing Piece) ======= -->
+<!-- =============================================================== -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                // If the element is intersecting the viewport, add the 'in-view' class
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the item is visible
+        });
+
+        // Find all elements with the 'animated-item' class and start observing them
+        const animatedItems = document.querySelectorAll('.animated-item');
+        animatedItems.forEach((item, index) => {
+            // Add a staggered delay to each item for a nice flowing effect
+            item.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(item);
+        });
+    });
+</script>
+{% endblock %}
